@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 class="heading mb-4 mt-2">Users List</h1>
+    <div class="row mb-3">
+        <div class="col-1 table-heading">Id</div>
+        <div class="col-3 table-heading">Image</div>
+        <div class="col-3 table-heading">Name</div>
+        <div class="col-3 table-heading">Email</div>
+        <div class="col-2 table-heading">Actions</div>
+    </div>
+    
+    <div class="row align-center mb-2" *ngFor = "let item of users; let i = index">
+        <div class="col-1 table-heading">{{item.id}}</div>
+        <div class="col-3 table-heading">
+            <img src="{{item.avatar}}" alt="img" title="img" class="img-fluid" />
+        </div>
+        <div class="col-3 table-heading">{{item.first_name +  item.last_name}}</div>
+        <div class="col-3 table-heading">{{item.email}}</div>
+        <div class="col-2 table-heading d-flex">
+            <button type="button" class="commn-btn" routerLink="/user/{{item.id}}">View</button>
+            <button type="button" class="commn-btn" (click)="deleteUser(i)">Delete</button>
+        </div>
+    </div>
+
+</div>
